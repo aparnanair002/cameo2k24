@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAMEO2024</title>
-    <link rel="stylesheet" href="css/Eventstyle.css">
+    <link rel="stylesheet" href="../css/Eventstyle.css">
     
 </head>
 <body>
@@ -12,7 +12,7 @@
     <!-- Header Section -->
     <header>
         <div class="logo">
-            <img src="image/nirmalacollege.png" alt="Logo" class="logo-image">
+            <img src="../image/nirmalacollege.png" alt="Logo" class="logo-image">
         </div>
         <nav>
             <ul class="nav-links">
@@ -31,7 +31,7 @@
     <section id="intro" class="section black-background">
         <div class="content-center">
             <div class="image-box">
-                <img src="image/cameo logo.png" alt="Centered Image" class="center-image">
+                <img src="../image/cameo logo.png" alt="Centered Image" class="center-image">
             </div>
             <h1>THE BATTLE OF INTELLECTS</h1>
         </div>
@@ -70,7 +70,7 @@
 
         <!-- Register Button -->
         <div class="register-button-container">
-            <a href="#register" class="register-button">Register for the Event</a>
+            <a href="ccregister.php" class="register-button">Register for the Event</a>
         </div>
     </div>
 </section>
@@ -101,6 +101,6 @@
     </footer>
     
 
-    <script src="javascript/script.js"></script>
+    <script src="../javascript/script.js"></script>
 </body>
 </html>

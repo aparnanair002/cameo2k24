@@ -3,7 +3,7 @@ $server = "localhost";
 $username = "root";
 $password = "";
 $db = "db_cameo2k24";
-$conn = mysqli_connect($server, $username, $password); 
+$conn = mysqli_connect($server, $username, $password,$db); 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
