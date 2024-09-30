@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
                 <label for="transactionid">Transaction id:</label>
-                <input type="text" id="transactionid" name="transactionid " required>
+                <input type="text" id="transactionid" name="transactionid" required>
             </div>
             <div class="form-group checkbox-group">
                 <input type="checkbox" id="terms" name="terms" required>
@@ -56,15 +56,15 @@ $con = mysqli_connect("localhost", "root", "", "db_cameo2k24");
 if (!$con) {
     die("Connection failed: " . mysqli_connect_error());
 }
-
+// echo $cname;
 $cname=$_POST["cname"];
 $name=$_POST["name"];
 $email=$_POST["email"];
 $phoneno=$_POST["phoneno"];
 $transactionid=$_POST["transactionid"];
 $status=0;
-
-$query="insert  into  tbl_coding(cod_college,cod_name,cod_email,cod_phno,cod_trn_id,cod_status)values('$cname','$name','$email',$phoneno,$transactionid,$status)";
+// echo $transactionid;
+$query="insert  into  tbl_coding(cod_college,cod_name,cod_email,cod_phno,cod_trn_id,cod_status)values('$cname','$name','$email','$phoneno','$transactionid',$status)";
 $result=mysqli_query($con,$query);
 echo $query;
 }
