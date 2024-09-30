@@ -36,6 +36,38 @@
               </a>
             </li>
             <li class="sidebar-item">
+              <a class="sidebar-link" href="./wordhunt.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">Word Hunt</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./treasurehunt.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">Treasure Hunt</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./reels.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">Reels Competition</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./memorygame.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">Memory Game</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
               <a class="sidebar-link" href="./ui-forms.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-file-description"></i>
