@@ -29,13 +29,6 @@ table {
             background-color: #ddd;
         }
 </style>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Modernize Free</title>
-  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
-  <link rel="stylesheet" href="../assets/css/styles.min.css" />
-</head>
 
 <body>
   <!--  Body Wrapper -->
@@ -67,11 +60,13 @@ table {
               </tr>
         </thead>
         <tbody>
+
+
+        <!--php for finding students to be approved-->
                 <?php
 include('../connection.php');
 
-$sql = "select * from tbl_coding where cod_status=0";
-     
+$sql = "select * from tbl_coding where cod_status=0";     
 $result=mysqli_execute_query($conn,$sql);
 if (!$result) {
 die("Query failed: " . mysqli_error($conn));
@@ -85,13 +80,11 @@ echo "<td>" . $row['cod_email']."</td>";
 echo "<td>" . $row['cod_phno']."</td>";
 echo "<td>" . $row['cod_college']. "</td>"; // Append each row to the data variable
 echo "<td>" .$row['cod_trn_id']."</td>";
-echo "<td><input type='submit' value='Approve' name='appr' class='btn btn-success'></button></td>";
-echo "<td><input type='submit' value='Reject' name='rej' class='btn btn-success'></button></td>";
-
-//echo "<td><input type='reject' class='btn btn-Danger'></button></td>";
-
+echo "<td><a href='verify/cod.php?id=".$row['cod_id']."' type='submit' name='appr' class='btn btn-success'>Approve</a>";
+echo "<td><a href='?id=".$row['cod_id']."' type='submit'  name='rej' class='btn btn-danger'>Reject</a>";
 echo "</tr>";
 }
+echo "</tbody></table>";
 }
 else {
   echo "<tr><td colspan='3'>No data available</td></tr>";
@@ -101,11 +94,78 @@ mysqli_close($conn);
 ?>
 
 
+<!--php for finding students to be approved-->
+
+
+<?php
+if(isset($_GET['id']))
+{
+  
+  $id=$_GET['id'];
+  yurfn($id);
+}
+  function yurfn($id){
+    include('../connection.php');
+  $sql = "update tbl_coding set cod_status=2 where cod_id=$id";
+       
+  $result=mysqli_execute_query($conn,$sql);
+  if (!$result) {
+  die("Query failed: " . mysqli_error($conn));
+  }
+}
+?>
+
+    <table id="my-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>                
+                <th>Phone</th>
+                <th>College</th>
+                <th>Transaction Id</th>
+
+              </tr>
+        </thead>
+        <tbody>
+        
+        <?php
+include('../connection.php');
+
+$sdnld = "select * from tbl_coding where cod_status=1";
+     
+$result=mysqli_execute_query($conn,$sdnld);
+if (!$result) {
+die("Query failed: " . mysqli_error($conn));
+}
+if ($result->num_rows > 0) {
+// Fetch the data
+while ($row = mysqli_fetch_assoc($result)) {
+echo "<tr>";
+echo "<td>" . $row['cod_name']."</td>";
+echo "<td>" . $row['cod_email']."</td>";
+echo "<td>" . $row['cod_phno']."</td>";
+echo "<td>" . $row['cod_college']. "</td>"; // Append each row to the data variable
+echo "<td>" .$row['cod_trn_id']."</td>";
+//echo "<td><input type='reject' class='btn btn-Danger'></button></td>";
+
+echo "</tr>";
+}
+
+echo "</tbody></table>";
+echo "<button id='btn-export' class='btn btn-success'><b>Export as XLSX</b></button>";
+
+}
+else {
+  echo "<tr><td colspan='3'>No data available</td></tr>";
+}
+// Close the connection
+mysqli_close($conn);
+?>
+                </div>
                 </div>
                           </div>
                     </fieldset>
                   </form>
-                </div>
               </div>
             </div>
           </div>
@@ -113,11 +173,14 @@ mysqli_close($conn);
       </div>
     </div>
   </div>
+  <script src="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js"></script>
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/sidebarmenu.js"></script>
   <script src="../assets/js/app.min.js"></script>
   <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+  <script src="../javascript/dwnld.js"></script>
+
 </body>
 
 </html>

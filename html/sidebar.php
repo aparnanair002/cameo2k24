@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cameo 2024</title>
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+</head>
 
  <!-- Sidebar Start -->
  <aside class="left-sidebar">
@@ -6,7 +12,7 @@
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="./index.php" class="text-nowrap logo-img">
-            <img src="../assets/images/logos/dark-logo.svg" width="180" alt="" />
+            <img src="../assets/images/logos/dark-logo.svg" width="250" alt="" style="margin-left:-20px"/>
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -15,10 +21,7 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
           <ul id="sidebarnav">
-            <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">Home</span>
-            </li>
+           
             <li class="sidebar-item">
               <a class="sidebar-link" href="./index.php" aria-expanded="false">
                 <span>
@@ -29,52 +32,73 @@
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="./coding.php" aria-expanded="false">
-                <span>
-                  <i class="ti ti-file-description"></i>
+              <span>
+                  <i class="ti ti-article"></i>
                 </span>
-                <span class="hide-menu">Coding</span>
+                <span class="hide-menu">Coding</span><!--done-->
               </a>
             </li>
+            
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./wordhunt.php" aria-expanded="false">
-                <span>
-                  <i class="ti ti-file-description"></i>
+              <a class="sidebar-link" href="./efootball.php" aria-expanded="false">
+              <span>
+                  <i class="ti ti-mouse"></i>
                 </span>
-                <span class="hide-menu">Word Hunt</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./treasurehunt.php" aria-expanded="false">
-                <span>
-                  <i class="ti ti-file-description"></i>
-                </span>
-                <span class="hide-menu">Treasure Hunt</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./reels.php" aria-expanded="false">
-                <span>
-                  <i class="ti ti-file-description"></i>
-                </span>
-                <span class="hide-menu">Reels Competition</span>
+                <span class="hide-menu">Efootball</span><!--done-->
               </a>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="./memorygame.php" aria-expanded="false">
-                <span>
-                  <i class="ti ti-file-description"></i>
+              <span>
+                  <i class="ti ti-eye"></i>
                 </span>
-                <span class="hide-menu">Memory Game</span>
+                <span class="hide-menu">Memory Game</span><!--done-->
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-forms.php" aria-expanded="false">
-                <span>
-                  <i class="ti ti-file-description"></i>
+              <a class="sidebar-link" href="./escaperoom.php" aria-expanded="false">
+              <span>
+                  <i class="ti ti-home"></i>
                 </span>
-                <span class="hide-menu">Forms</span>
+                <span class="hide-menu">Escaperoom</span>
               </a>
             </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./wordhunt.php" aria-expanded="false">
+              <span>
+                  <i class="ti ti-wand"></i>
+                </span>
+                <span class="hide-menu">Word Hunt</span><!--done-->
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./bgmi.php" aria-expanded="false">
+              <span>
+                  <i class="ti ti-target"></i>
+                </span>
+                <span class="hide-menu">BGMI</span>
+              </a>
+            </li>
+            
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./treasurehunt.php" aria-expanded="false">
+              <span>
+                  <i class="ti ti-map"></i>
+                </span>
+                <span class="hide-menu">Treasure Hunt</span><!--done-->
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./reels.php" aria-expanded="false">
+              <span>
+                  <i class="ti ti-camera"></i>
+                </span>
+                <span class="hide-menu">Reels Competition</span><!--done-->
+              </a>
+            </li>
+            
+            
+           <!--
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">UI COMPONENTS</span>
@@ -122,15 +146,15 @@
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">AUTH</span>
-            </li>
+            </li>-->
             <li class="sidebar-item">
               <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
                 <span>
-                  <i class="ti ti-login"></i>
+                  <i class="ti ti-logout"></i>
                 </span>
-                <span class="hide-menu">Login</span>
+                <span class="hide-menu">Logout</span>
               </a>
-            </li>
+            </li><!--
             <li class="sidebar-item">
               <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
                 <span>
@@ -158,7 +182,7 @@
                 </span>
                 <span class="hide-menu">Sample Page</span>
               </a>
-            </li>
+            </li>--
           </ul>
           <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
             <div class="d-flex">
