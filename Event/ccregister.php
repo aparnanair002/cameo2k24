@@ -66,7 +66,7 @@ $status=0;
 // echo $transactionid;
 $query="insert  into  tbl_coding(cod_college,cod_name,cod_email,cod_phno,cod_trn_id,cod_status)values('$cname','$name','$email','$phoneno','$transactionid',$status)";
 $result=mysqli_query($con,$query);
-echo $query;
+//echo $query;
 }
 ?>
 </html>
