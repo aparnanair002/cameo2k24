@@ -17,11 +17,12 @@ body {
 /* Form Section with Background Image */
 .form-section {
     background: url('background-image.jpg') no-repeat center center/cover;
-    height: 100vh;
+    height: 115vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 25px;
+    margin-top: 70px;
 }
 
 /* Form Container */
