@@ -1,0 +1,324 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f4f4f9;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-image {
+    width: 120px;
+    height: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff6b6b;
+}
+
+.hamburger {
+    display: none; /* Hide on desktop */
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+}
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide the navigation links initially */
+        flex-direction: column;
+        background-color: white;
+        position: absolute;
+        top: 80px; /* Adjust based on header height */
+        right: 0;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        padding-bottom: 20px;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show navigation when the hamburger is clicked */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger on mobile */
+    }
+}
+/* Section with Black Background */
+.black-background {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    text-align: center;
+}
+
+.content-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Image Box with Blue Shadow Animation */
+.image-box {
+    position: relative;
+    display: inline-block;
+    padding: 20px;
+    border-radius: 168px;
+    background-color: rgb(0, 0, 0); /* You can adjust this if you want another background color */
+    box-shadow: 0 0 20px rgba(2, 217, 246, 0.5); /* Initial shadow with blue color */
+    animation: blueShadowPulse 2s infinite ease-in-out;
+}
+
+/* Image Styling */
+.center-image {
+    width: 200px;  /* Medium width */
+    height: auto;  /* Maintain aspect ratio */
+    border-radius: 168px;
+}
+
+/* Heading */
+.black-background h1 {
+    font-size: 1.5rem;
+    margin-top: 40px;
+    animation: fadeIn 2s ease;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+/* Keyframe for Blue Shadow Animation */
+@keyframes blueShadowPulse {
+    0% {
+        box-shadow: 0 0 50px rgba(0, 179, 255, 0.803);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 179, 255, 0.803);
+    }
+    100% {
+        box-shadow: 0 0 20px  rgba(0, 179, 255, 0.803);
+    }
+}
+
+/* Animation for the Heading */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .center-image {
+        width: 200px;  /* Smaller image size for mobile */
+    }
+
+    .black-background h1 {
+        font-size: 2rem; /* Adjust heading size for mobile */
+    }
+}
+
+.grid-section {
+    padding: 100px 20px;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.grid-section h2 {
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Default: 4 columns */
+    gap: 10px;
+}
+
+.grid-item {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.grid-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.grid-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.grid-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* Media Query for Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* 1 column for mobile */
+        gap: 15px;
+    }
+
+    .grid-item {
+        margin: 0 auto; /* Center the grid item for mobile */
+    }
+}
+
+/* Button Styling for Anchor Tags */
+.grid-buttons .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #ff0000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+.grid-buttons .btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* Footer */
+/* Footer Styles */
+.footer {
+    background-color: #000000;
+    color: white;
+    padding: 40px 20px;
+    text-align: left;
+    
+}
+
+.footer h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+footer details {
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+footer summary {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #fa0101;
+    padding: 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+footer details[open] {
+    background-color: #ffffff; /* Darker background when open */
+}
+
+footer details p {
+    margin: 0;
+    padding: 5px 0;
+    color: #000000;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+/* Guideline Section */
+.guidelines-section {
+    padding: 100px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.guidelines-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.guideline-list {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column by default */
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.guideline-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.guideline-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.arrow-icon {
+    width: 30px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.guideline-item p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Responsive Layout */
+@media (min-width: 768px) {
+    .guideline-list {
+        grid-template-columns: 1fr 1fr; /* Two columns for tablets and larger screens */
+    }
+}
