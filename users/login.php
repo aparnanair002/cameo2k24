@@ -1,3 +1,49 @@
+<?php
+include '../connection.php';
+session_start();
+
+// Check if form is submitted
+if (isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Prepare the SQL statement
+    $stmt = $conn->prepare("SELECT * FROM tbl_coord WHERE cord_name = ? AND cord_pass = ?");
+
+    // Bind the parameters to the query (s = string)
+    $stmt->bind_param("ss", $username, $password);
+
+    // Execute the statement
+    $stmt->execute();
+
+    // Get the result
+    $result = $stmt->get_result();
+
+    // Check if the user exists
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+
+        // Store user information in session variables
+        $_SESSION['cord_name'] = $row['cord_name'];
+        $_SESSION['event'] = $row['event'];
+        $_SESSION['comp'] = $row['comp'];
+
+
+        // Redirect to home page
+        header("Location: ./index.php");
+        exit();
+    } else {
+        // Invalid login, handle error (optional)
+        echo "<script>alert('Invalid username or password');</script>";
+    }
+
+    // Close the statement and the connection
+    $stmt->close();
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,7 +162,7 @@ body, html {
     <div class="login-container">
         <div class="login-box">
             <h2>Login</h2>
-            <form action="adminlogin.php" method="POST">
+            <form action="" method="POST">
                 <div class="input-box">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" required>

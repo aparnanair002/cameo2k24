@@ -1,5 +1,13 @@
 <!doctype html>
 <html lang="en">
+<?php
+  session_start();
+  $name=$_SESSION['admin'];
+  if(!isset($_SESSION['admin_id'])){
+    header('Location: ../adminlogin.php');
+    exit();
+  }
+?>
 <style>
 table {
             width: 100%;

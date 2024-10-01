@@ -1,5 +1,13 @@
 <!doctype html>
 <html lang="en">
+<?php
+  session_start();
+  $name=$_SESSION['admin'];
+  if(!isset($_SESSION['admin_id'])){
+    header('Location: ../adminlogin.php');
+    exit();
+  }
+?>
 <style>
 table {
             width: 100%;
@@ -66,7 +74,7 @@ table {
                 <?php
 include('../connection.php');
 
-$sql = "select * from tbl_coding where cod_status=0";     
+$sql = "select * from tbl_coding where t_status=0";     
 $result=mysqli_execute_query($conn,$sql);
 if (!$result) {
 die("Query failed: " . mysqli_error($conn));
@@ -75,13 +83,13 @@ if ($result->num_rows > 0) {
 // Fetch the data
 while ($row = mysqli_fetch_assoc($result)) {
 echo "<tr>";
-echo "<td>" . $row['cod_name']."</td>";
-echo "<td>" . $row['cod_email']."</td>";
-echo "<td>" . $row['cod_phno']."</td>";
-echo "<td>" . $row['cod_college']. "</td>"; // Append each row to the data variable
-echo "<td>" .$row['cod_trn_id']."</td>";
-echo "<td><a href='verify/cod.php?id=".$row['cod_id']."' type='submit' name='appr' class='btn btn-success'>Approve</a>";
-echo "<td><a href='?id=".$row['cod_id']."' type='submit'  name='rej' class='btn btn-danger'>Reject</a>";
+echo "<td>" . $row['t_name']."</td>";
+echo "<td>" . $row['t_email']."</td>";
+echo "<td>" . $row['t_phno']."</td>";
+echo "<td>" . $row['t_college']. "</td>"; // Append each row to the data variable
+echo "<td>" .$row['t_trn_id']."</td>";
+echo "<td><a href='verify/cod.php?id=".$row['t_id']."' type='submit' name='appr' class='btn btn-success'>Approve</a>";
+echo "<td><a href='?id=".$row['t_id']."' type='submit'  name='rej' class='btn btn-danger'>Reject</a>";
 echo "</tr>";
 }
 echo "</tbody></table>";
@@ -106,7 +114,7 @@ if(isset($_GET['id']))
 }
   function yurfn($id){
     include('../connection.php');
-  $sql = "update tbl_coding set cod_status=2 where cod_id=$id";
+  $sql = "update tbl_coding set t_status=2 where t_id=$id";
        
   $result=mysqli_execute_query($conn,$sql);
   if (!$result) {
@@ -131,7 +139,7 @@ if(isset($_GET['id']))
         <?php
 include('../connection.php');
 
-$sdnld = "select * from tbl_coding where cod_status=1";
+$sdnld = "select * from tbl_coding where t_status=1";
      
 $result=mysqli_execute_query($conn,$sdnld);
 if (!$result) {
@@ -141,11 +149,11 @@ if ($result->num_rows > 0) {
 // Fetch the data
 while ($row = mysqli_fetch_assoc($result)) {
 echo "<tr>";
-echo "<td>" . $row['cod_name']."</td>";
-echo "<td>" . $row['cod_email']."</td>";
-echo "<td>" . $row['cod_phno']."</td>";
-echo "<td>" . $row['cod_college']. "</td>"; // Append each row to the data variable
-echo "<td>" .$row['cod_trn_id']."</td>";
+echo "<td>" . $row['t_name']."</td>";
+echo "<td>" . $row['t_email']."</td>";
+echo "<td>" . $row['t_phno']."</td>";
+echo "<td>" . $row['t_college']. "</td>"; // Append each row to the data variable
+echo "<td>" .$row['t_trn_id']."</td>";
 //echo "<td><input type='reject' class='btn btn-Danger'></button></td>";
 
 echo "</tr>";
