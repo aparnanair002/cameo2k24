@@ -1,17 +1,22 @@
 <?php
 include 'connection.php';
+session_start();
+$name=$_SESSION['admin_name'];
 // Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
  $f=0;
     // Prepare and bind
-    $stmt = mysqli_query($conn,"SELECT admin_name,admin_pass FROM tbl_admin WHERE admin_name = '$username' and admin_pass='$password'");
+    $stmt = mysqli_query($conn,"SELECT * FROM tbl_admin WHERE admin_name = '$username' and admin_pass='$password'");
 
     // Check if username exists
     while ($row=mysqli_fetch_array($stmt)) {
         if ($row >0){
             // Store user ID in session and redirect to another page
+            $_SESSION['admin_id']=$row['admin_id'];
+            $_SESSION['admin']=$row['admin_name'];
+
             header("Location: ../html/index.php");
             exit();
         } 

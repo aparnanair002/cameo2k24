@@ -2,9 +2,9 @@
 <html lang="en">
   <?php
   session_start();
-  $name=$_SESSION['admin'];
-  if(!isset($_SESSION['admin_id'])){
-    header('Location: ../login.php');
+  $name=$_SESSION['cord_name'];
+  if(!isset($_SESSION['cord_name'])){
+    header('Location: ./login.php');
     exit();
   }
 ?>
@@ -17,6 +17,7 @@
    
 
    ?>
+   
     <!--  Main wrapper -->
     <div class="bo2y-wrapper">
       <div class="container-fluid">

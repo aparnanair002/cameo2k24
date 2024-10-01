@@ -16,7 +16,7 @@
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#guidelines">Guidelines</a></li>
                 <li><a href="#grid-section">Event</a></li>
                 <li><a href="login.php">Login</a></li>
@@ -70,7 +70,7 @@
 
         <!-- Register Button -->
         <div class="register-button-container">
-            <a href="ccregister.php" class="register-button">Register</a>
+            <a href="thregister.php" class="register-button">Register</a>
         </div>
     </div>
 </section>
