@@ -7,40 +7,41 @@
 
     <title>Login Page</title>
 </head>
-<body>
+<body><center>
 <section class="form-section">
     <div class="form-container">
-        <h2>Coding Register</h2>
+        <h2>Coding Registration</h2>
         <form id="registerForm" action="" method="POST" onsubmit="return validateForm()">
             <div class="form-group">
-                <label for="cname">College Name:</label>
-                <input type="text" id="cname" name="cname" required>
+            <input type="text" id="cname" name="cname" placeholder="College Name:" required>
             </div>
 
             <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" placeholder="Enter Student Name " required>
             </div>
 
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" placeholder="Enter Email" required>
             </div>
 
             <div class="form-group">
-                <label for="phoneno">Phone Number:</label>
-                <input type="text" id="phoneno" name="phoneno" required pattern="\d{10}" title="Enter a valid 10-digit phone number">
+            <input type="text" id="phoneno" placeholder="Enter Phone Number:" name="phoneno" required
+            pattern="\d{10}" title="Enter a valid 10-digit phone number">
             </div>
 
             <label for="payment">Payment</label>
-            <div class="form-image">
-                <img src="../image/OIP.jpg" alt="Form Image">
-            </div>
-
-            <div class="form-group">
-                <label for="transactionid">Transaction ID:</label>
-                <input type="text" id="transactionid" name="transactionid" required pattern="[a-zA-Z0-9]{6,}" title="Transaction ID should be at least 6 characters long, alphanumeric.">
-            </div>
+                    <div class="">
+                        <div id="qrcode"></div>
+                    </div>
+                    <div class="form-group">
+                        <a id="paymentlink" href="">
+                            
+                        <button type="button" class="btn" style="margin-top: 20px;">Pay Now</button></a>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="transactionid" name="transactionid" placeholder="Enter transaction ID"
+                            required pattern="[a-zA-Z0-9]{12}" title="Transaction ID should contain 12- digits">
+</div>
 
             <div class="form-group checkbox-group">
                 <input type="checkbox" id="terms" name="terms" required>
@@ -53,7 +54,7 @@
         </form>
     </div>
 </section>
-
+</center>
 <script>
     function validateForm() {
         // Get form field values
@@ -118,15 +119,14 @@ if (!$con) {
 $cname=$_POST["cname"];
 $name=$_POST["name"];
 $email=$_POST["email"];
-
 $phoneno=$_POST["phoneno"];
 $transactionid=$_POST["transactionid"];
 $status=0;
 include 'recheck.php';
 if ($re->num_rows > 0){
-      ?>
-      <script>alert('Email already exists');</script>
-      <?php
+    echo"
+    <script>alert('Email already exists');</script>
+    ";
 }
 else{
 // Prepare the query
@@ -141,16 +141,44 @@ mysqli_stmt_bind_param($stmt, "sssssi", $cname, $name, $email, $phoneno, $transa
 // Execute the prepared statement
 $result = mysqli_stmt_execute($stmt);
 
-// Check for success
 if ($result) {
-    header("location:../check.php");
+    // Use JavaScript to redirect to the index page
+    echo "<script>
+            window.location.href = '../index.html';
+          </script>";
+    exit; // Make sure to exit after redirecting
 } else {
-    echo "Error inserting record: " . mysqli_error($con);
+    // Output an error message using JavaScript
+    $errorMessage = mysqli_error($con);
+    echo "<script>
+            alert('Error: " . addslashes($errorMessage) . "');
+            window.location.href = '../errorpage.html'; // You can redirect to a specific error page if needed
+          </script>";
 }
 
 // Close the statement
 mysqli_stmt_close($stmt);
+
 }
 }
 ?>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+    integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+var upiID = "abin2066@okicici";
+var amount = 100;
+
+document.getElementById("paymentlink").href = `upi://pay?pa=${upiID}&pn=Cameo&cu=INR&am=${amount}`;
+// QR code generation with size
+new QRCode(document.getElementById("qrcode"), {
+    text: `upi://pay?pa=${upiID}&pn=Cameo&cu=INR&am=${amount}`,
+    width: 200,
+    height: 200,
+    colorDark: "#000000",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+});
+</script>
 </html>

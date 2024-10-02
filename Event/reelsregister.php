@@ -7,51 +7,50 @@
 
     <title>Login Page</title>
 </head>
-<body>
+<body><center>
 <section class="form-section">
     <div class="form-container">
-        <h2>Coding Register</h2>
+        <h2>Reels Competition Registration</h2>
         <form id="registerForm" action="" method="POST" onsubmit="return validateForm()">
             <div class="form-group">
-                <label for="cname">College Name:</label>
-                <input type="text" id="cname" name="cname" required>
+            <input type="text" id="cname" name="cname" placeholder="College Name:" required>
             </div>
 
             <div class="form-group">
-                <label for="name">Name 1:</label>
-                <input type="text" id="name" name="name1" required>
+            <input type="text" id="name" name="name1" placeholder="Enter Student Name 1" required>
             </div>
             <div class="form-group">
-                <label for="name">Name 2:</label>
-                <input type="text" id="name" name="name2" required>
+            <input type="text" id="name" name="name2" placeholder="Enter Student Name 2" required>
             </div>
             <div class="form-group">
-                <label for="name">Name 3:</label>
-                <input type="text" id="name" name="name3" required>
+            <input type="text" id="name" name="name3" placeholder="Enter Student Name 3" required>
             </div>
             <div class="form-group">
-                <label for="name">Name 4:</label>
-                <input type="text" id="name" name="name3" required>
+            <input type="text" id="name" name="name4" placeholder="Enter Student Name 4" required>
             </div>
 
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" placeholder="Enter Email" required>
+
             </div>
 
             <div class="form-group">
-                <label for="phoneno">Phone Number:</label>
-                <input type="text" id="phoneno" name="phoneno" required pattern="\d{10}" title="Enter a valid 10-digit phone number">
+            <input type="text" id="phoneno" placeholder="Enter Phone Number:" name="phoneno" required
+            pattern="\d{10}" title="Enter a valid 10-digit phone number">
             </div>
 
             <label for="payment">Payment</label>
-            <div class="form-image">
-                <img src="../image/OIP.jpg" alt="Form Image">
-            </div>
+                    <div class="">
+                        <div id="qrcode"></div>
+                    </div>
+                    <div class="form-group">
+                        <a id="paymentlink"><button
+                                type="button" class="btn" style="margin-top: 20px;">Pay Now</button></a>
+                    </div>
 
             <div class="form-group">
-                <label for="transactionid">Transaction ID:</label>
-                <input type="text" id="transactionid" name="transactionid" required pattern="[a-zA-Z0-9]{6,}" title="Transaction ID should contain 12- digits">
+            <input type="text" id="transactionid" name="transactionid" placeholder="Enter transaction ID"
+            required pattern="[a-zA-Z0-9]{12}" title="Transaction ID should contain 12- digits">
             </div>
 
             <div class="form-group checkbox-group">
@@ -64,7 +63,7 @@
             </div>
         </form>
     </div>
-</section>
+</section></center>
 
 <script>
     function validateForm() {
@@ -155,14 +154,59 @@ $transactionid=$_POST["transactionid"];
 $status=0;
 include 'recheck.php';
 if ($re->num_rows > 0){
-      ?>
+      echo"
       <script>alert('Email already exists');</script>
-      <?php
+      ";
 }
 else{
-$query="insert  into  tbl_reels(t_college,t_name1,t_name2,t_name3,t_name4,t_email,t_phno,t_trn_id,t_status)values('$cname','$name1','$name2','$name3','$name4','$email','$phoneno','$transactionid',$status)";
-$result=mysqli_query($con,$query);
-header("location:../check.php");
-}}
+// Prepare the SQL query with placeholders
+$query = "INSERT INTO tbl_reels (t_college, t_name1, t_name2, t_name3, t_name4, t_email, t_phno, t_trn_id, t_status) 
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+// Initialize a prepared statement
+$stmt = mysqli_prepare($con, $query);
+
+// Bind the variables to the placeholders
+mysqli_stmt_bind_param($stmt, 'ssssssssi', $cname, $name1, $name2, $name3, $name4, $email, $phoneno, $transactionid, $status);
+
+// Execute the prepared statement
+$result = mysqli_stmt_execute($stmt);
+
+if ($result) {
+    // Use JavaScript to redirect to the index page
+    echo "<script>
+            window.location.href = '../index.html';
+          </script>";
+    exit; // Make sure to exit after redirecting
+} else {
+    // Output an error message using JavaScript
+    $errorMessage = mysqli_error($con);
+    echo "<script>
+            alert('Error: " . addslashes($errorMessage) . "');
+            window.location.href = '../errorpage.html'; // You can redirect to a specific error page if needed
+          </script>";
+}
+// Close the statement
+mysqli_stmt_close($stmt);
+}
+}
 ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+    integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+var upiID = "feop9523@okhdfcbank";
+var amount = 200;
+
+document.getElementById("paymentlink").href = `upi://pay?pa=${upiID}&pn=Cameo&cu=INR&am=${amount}`;
+// QR code generation with size
+new QRCode(document.getElementById("qrcode"), {
+    text: `upi://pay?pa=${upiID}&pn=Cameo&cu=INR&am=${amount}`,
+    width: 200,
+    height: 200,
+    colorDark: "#000000",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+});
+</script>
 </html>

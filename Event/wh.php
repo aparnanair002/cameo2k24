@@ -16,11 +16,8 @@
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#guidelines">Guidelines</a></li>
-                <li><a href="#grid-section">Event</a></li>
-                <li><a href="login.php">Login</a></li>
-                <li><a href="#check-status">Check Status</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../check.php">Check Status</a></li>
                 <li><a href="#footer">Contact</a></li>
             </ul>
             <div class="hamburger">&#9776;</div>
@@ -38,68 +35,80 @@
     </section>
     <section id="guidelines" class="guideline-section">
     <div class="container">
-        <h2>Guidelines for Event Participation</h2>
-        <p class="guideline-description">
-            Please read the following guidelines carefully before registering for the event. Make sure to adhere to all points to ensure a smooth and enjoyable experience for everyone.
-        </p>
+        <h2>Guidelines for Word Hunt</h2>
+       
 
         <!-- List of Guidelines -->
         <ul class="guideline-list">
             <li class="guideline-item">
-                <i class="arrow-icon">&#x2192;</i> All participants must register online prior to the event.
+                <i class="arrow-icon">&#x2192;</i> Mobile phones/ electronic gadgets are not allowed.
             </li>
             <li class="guideline-item">
-                <i class="arrow-icon">&#x2192;</i> Ensure you bring a valid ID card for verification at the event.
+                <i class="arrow-icon">&#x2192;</i> Carry your college Id during the event.
             </li>
             <li class="guideline-item">
-                <i class="arrow-icon">&#x2192;</i> Follow the event's schedule and arrive on time for all sessions.
+                <i class="arrow-icon">&#x2192;</i>  Results published by  the  judging panel will be final.
             </li>
             <li class="guideline-item">
-                <i class="arrow-icon">&#x2192;</i> Maintain decorum and avoid disruptive behavior during the event.
+                <i class="arrow-icon">&#x2192;</i> All teams receive participation certificates.
             </li>
             <li class="guideline-item">
-                <i class="arrow-icon">&#x2192;</i> Respect other participants and avoid any form of harassment or discrimination.
+                <i class="arrow-icon">&#x2192;</i> <p style="color:red">A maximum of 3 teams can participate from each college.</p>
             </li>
             <li class="guideline-item">
-                <i class="arrow-icon">&#x2192;</i> Do not bring any prohibited items to the event venue.
+                <i class="arrow-icon">&#x2192;</i><p style="color:red"> Candidates can be group of three.</p>
             </li>
             <li class="guideline-item">
-                <i class="arrow-icon">&#x2192;</i> In case of emergencies, follow the event organizers' instructions carefully.
+                <i class="arrow-icon">&#x2192; </i><p style="color:red"> No refunds after registration.</p>
             </li>
         </ul>
-
         <!-- Register Button -->
         <div class="register-button-container">
-            <a href="thregister.php" class="register-button">Register</a>
+            <a href="whregister.php" class="register-button">Register</a>
         </div>
     </div>
 </section>
 
     
     
-    <footer id="footer" class="footer">
+<footer id="footer" class="footer">
         <h2>Contact Information</h2>
-        <details>
-            <summary>Staff Coordinator</summary>
-            <p>Mr Sherin Mathew G <br>Phone: </p>
-        </details>
     
-        <details>
-            <summary>Student Coordinators</summary>
-            <p>Mr Mahesh K M <br> Phone: </p>
-            <p>Ms Abiya Roy <br> Phone: </p>
-            <p>Mr Vishnu Prasad <br> Phone: </p>
-            <p>Mr Abin Rony <br> Phone: </p>
-        </details>
+        <div class="contact-section">
+            <details>
+                <summary>Staff Coordinator</summary>
+                <p><strong>Ms. Sherry O Panicker</strong> <br> 
+                </p>
+            </details>
+            
+            <details>
+                <summary>Student Coordinators</summary>
+                <p><strong>Ms. JOSPIN JOSEPH</strong> <br> 
+                   <i class="fas fa-phone"></i> 
+                   <a href="tel:+91 88488 00559">+91 88488 00559</a>
+                </p>
+                <p><strong>Ms. ALFIYA HASSAN</strong> <br> 
+                   <i class="fas fa-phone"></i> 
+                   <a href="tel:+91 99957 10784">+91 99957 10784</a>
+                </p>
+            </details>
     
-
+            <details>
+                <summary>Social Media</summary>
+                <p>
+                   <a href="https://www.instagram.com/cameo_.24?igsh=MTU0em91c3ViYW9ucw==" target="_blank">
+                   <i class="fab fa-instagram"></i> Instagram: CAMEO2K24
+                   </a>
+                </p>
+            </details>
+        </div>
     
-        <details>
-            <summary>Social Media</summary>
-            <p>Instagram: </p>
-        </details>
+        <div class="footer-bottom">
+            <p><center>Copyright &copy; 2024 Your Organization. All Rights Reserved | Department of Computer Application,NCM
+                <br><br>
+            </center></p>
+        </div>
     </footer>
-    
 
     <script src="../javascript/script.js"></script>
 </body>

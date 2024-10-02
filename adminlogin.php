@@ -1,7 +1,7 @@
 <?php
 include 'connection.php';
 session_start();
-$name=$_SESSION['admin_name'];
+
 // Check if form is submitted
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
@@ -17,7 +17,7 @@ if (isset($_POST['login'])) {
             $_SESSION['admin_id']=$row['admin_id'];
             $_SESSION['admin']=$row['admin_name'];
 
-            header("Location: ../html/index.php");
+            header("Location: html/index.php");
             exit();
         } 
     else {
