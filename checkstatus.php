@@ -126,16 +126,15 @@ tbody tr:hover {
                     <tr>
                         <th>College Name</th>
                         <th>Email ID</th>
+                        
                         <th>Student Name</th>
                         <th>Status</th>
-                        <th>tbj</th>
                     </tr>
                 </thead>
                 <tbody>
               
 
 <?php
-if(isset($_POST['submit'])){
 session_start();
 $con = mysqli_connect("localhost", "root", "", "db_cameo2k24");
 if (!$con) {
@@ -200,19 +199,16 @@ if ($result->num_rows > 0) {
 
 // Close the database connection
 $con->close();
-}
+
 
 ?>
 
     </tbody>
 </table>
 
-                </tbody>
-            </table>
-
             <!-- Logout Button -->
             <div class="logout-button-container">
-    <a href="check.php" class="btn">Logout</a>
+    <a href="index.html" class="btn">Logout</a>
 </div>
 
         </div>

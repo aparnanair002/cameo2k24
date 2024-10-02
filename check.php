@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <?php
+<?php
     session_start();
 if(isset($_SESSION['email'])){
 unset($_SESSION['email']);
@@ -85,10 +85,9 @@ input[type="email"] {
                 <div class="form-group">
                     <label for="email">Email ID:</label>
                     <input type="email" id="email" name="email" required>
-                    
                 </div>
                 <div class="form-group">
-                    <input type="submit" name="submit" required>
+                    <button type="submit" class="btn">Login</button>
                 </div>
             </form>
         </div>
